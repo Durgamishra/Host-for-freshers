@@ -4,19 +4,26 @@
     box-sizing: border-box;
 }
 
-/* Background image */
+/* ===== BACKGROUND IMAGE FIXED FOR ALL SCREENS ===== */
 #back {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    display: block;
-    position: absolute;
+    position: fixed;      /* stays locked behind */
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;    /* perfect mobile fit */
+    object-position: center;
     z-index: -1;
+    animation: fadeInBg 1.5s ease-in-out forwards; /* background fade animation */
 }
 
-/* Button Styling */
+/* Background fade animation */
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ===== BUTTON STYLING + ANIMATION ===== */
 .btn {
     padding: 14px 32px;
     border: none;
@@ -29,55 +36,52 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: 0.3s ease;
-
-    /* Centering Button */
     position: absolute;
     top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+    animation: popUp 1.2s ease-out forwards;  /* button pop animation */
 }
 
-/* Hover Effect */
+/* Button pop animation */
+@keyframes popUp {
+    0%   { transform: translate(-50%, -60%) scale(0.6); opacity: 0; }
+    70%  { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Hover */
 .btn:hover {
     transform: translate(-50%, -50%) scale(1.08);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
-/* Click effect */
+/* Click */
 .btn:active {
-    transform: translate(-50%, -50%) scale(0.96);
+    transform: translate(-50%, -50%) scale(0.95);
 }
 
-/* Footer Styling */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     background: #222;
     color: whitesmoke;
     padding: 12px 0;
     font-size: 0.9rem;
-    position: relative;
     margin-top: 20px;
 }
 
-/* =====================
-   MOBILE RESPONSIVENESS
-======================== */
+
+/* ===========================
+   MOBILE RESPONSIVE FIXES
+=========================== */
 
 @media (max-width: 768px) {
     .btn {
         font-size: 1rem;
         padding: 12px 26px;
-        top: 70%;
-    }
-
-    footer {
-        font-size: 0.8rem;
-        padding: 10px 0;
-    }
-
-    #back {
-        height: 100vh;
-        object-fit: cover;
+        top: 72%;
     }
 }
 
@@ -85,11 +89,7 @@ footer {
     .btn {
         font-size: 0.9rem;
         padding: 10px 22px;
-        top: 72%;
-    }
-
-    footer {
-        font-size: 0.75rem;
+        top: 75%;
     }
 }
 
