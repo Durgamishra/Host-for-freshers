@@ -15,45 +15,6 @@
     object-position: center;
     z-index: -1;
 }
-
-/* ===== STYLISH ANIMATED HEADER ===== */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 18px 0;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    text-align: center;
-    z-index: 10;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-    animation: slideDown 0.9s ease-out;
-}
-
-.main-header h1 {
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: glowPulse 2.5s infinite ease-in-out;
-}
-
-/* Header animation */
-@keyframes slideDown {
-    0% { transform: translateY(-100%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-/* Glowing animation */
-@keyframes glowPulse {
-    0%   { text-shadow: 0 0 8px #ff0055; }
-    50%  { text-shadow: 0 0 18px #ff7b00; }
-    100% { text-shadow: 0 0 8px #ff0055; }
-}
-
 /* ===== BUTTON (MOVED FAR BELOW TO AVOID HIDING TEXT) ===== */
 .btn {
     padding: 14px 32px;
@@ -139,3 +100,4 @@ footer {
         font-size: 0.75rem;
     }
 }
+
