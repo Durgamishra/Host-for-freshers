@@ -68,7 +68,7 @@ footer {
     .btn {
         font-size: 1rem;
         padding: 12px 26px;
-        bottom: 65px;  /* adjust space above footer */
+        bottom: 110px;  /* adjust space above footer */
     }
 
     footer {
@@ -81,7 +81,7 @@ footer {
     .btn {
         font-size: 0.9rem;
         padding: 10px 22px;
-        bottom: 60px;  /* safe placement for small phones */
+        bottom: 100px;  /* safe placement for small phones */
     }
 
     footer {
