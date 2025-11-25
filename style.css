@@ -16,7 +16,45 @@
     z-index: -1;
 }
 
-/* ===== BUTTON (MOVED DOWN) ===== */
+/* ===== STYLISH ANIMATED HEADER ===== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: center;
+    z-index: 10;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    animation: slideDown 0.9s ease-out;
+}
+
+.main-header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+/* Header animation */
+@keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Glowing animation */
+@keyframes glowPulse {
+    0%   { text-shadow: 0 0 8px #ff0055; }
+    50%  { text-shadow: 0 0 18px #ff7b00; }
+    100% { text-shadow: 0 0 8px #ff0055; }
+}
+
+/* ===== BUTTON (MOVED FAR BELOW TO AVOID HIDING TEXT) ===== */
 .btn {
     padding: 14px 32px;
     border: none;
@@ -29,19 +67,17 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: 0.3s ease;
 
-    /* NEW SAFE POSITION */
+    /* FINAL SAFE POSITION */
     position: absolute;
-    bottom: 120px;   /* moved ABOVE footer */
+    bottom: 140px;  /* moved further down */
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* Hover effect */
 .btn:hover {
     transform: translateX(-50%) scale(1.08);
 }
 
-/* Click */
 .btn:active {
     transform: translateX(-50%) scale(0.95);
 }
@@ -53,7 +89,6 @@ footer {
     color: whitesmoke;
     padding: 12px 0;
     font-size: 0.9rem;
-
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -64,78 +99,43 @@ footer {
    MOBILE RESPONSIVE FIXES
 =========================== */
 
+@media (max-width: 1080px) {
+    .btn {
+        bottom: 120px;
+        font-size: 1.1rem;
+        padding: 12px 28px;
+    }
+}
+
 @media (max-width: 768px) {
     .btn {
+        bottom: 110px;
         font-size: 1rem;
         padding: 12px 26px;
-        bottom: 110px;  /* adjust space above footer */
     }
 
-    footer {
-        font-size: 0.8rem;
-        padding: 10px 0;
+    .main-header h1 {
+        font-size: 1.6rem;
     }
 }
 
 @media (max-width: 480px) {
     .btn {
+        bottom: 95px;  /* perfect for small phones */
         font-size: 0.9rem;
         padding: 10px 22px;
-        bottom: 100px;  /* safe placement for small phones */
+    }
+
+    .main-header {
+        padding: 12px 0;
+    }
+
+    .main-header h1 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
     }
 
     footer {
         font-size: 0.75rem;
     }
-}
-@media (max-width: 1080px) {
-    .btn {
-        font-size: 1rem;
-        padding: 12px 26px;
-        bottom: 65px;  /* safe placement for small phones */
-    }
-
-    footer {
-        font-size: 0.75rem;
-    }   
-}
-/* ===== STYLISH ANIMATED HEADER ===== */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 18px 0;
-    background: rgba(0, 0, 0, 0.35);            /* transparent stylish glass */
-    backdrop-filter: blur(8px);                 /* glassmorphism */
-    -webkit-backdrop-filter: blur(8px);
-    text-align: center;
-    z-index: 10;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-
-    animation: slideDown 0.9s ease-out;         /* Enter animation */
-}
-
-/* Header text */
-.main-header h1 {
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    animation: glowPulse 2.5s infinite ease-in-out;   /* glowing animation */
-}
-
-/* Header sliding animation */
-@keyframes slideDown {
-    0% { transform: translateY(-100%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-/* Glowing text animation */
-@keyframes glowPulse {
-    0%   { text-shadow: 0 0 8px #ff0055; }
-    50%  { text-shadow: 0 0 18px #ff7b00; }
-    100% { text-shadow: 0 0 8px #ff0055; }
 }
